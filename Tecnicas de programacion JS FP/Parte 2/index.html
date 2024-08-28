@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 2 Javascript - Estructuras condicionales</title>
+</head>
+<body>
+    <script>
+        /*
+            Parte 2. Estructuras de control
+                - Condicionales simples
+                - Condicionales anidados
+                - Trabajando con Switch
+                - Objeto fecha
+                - Cómo acceder a un elemento en nuestro HTML
+
+            
+            Pasos a Seguir
+                - Operadores Logicos
+                - Tablas de verdad
+                - Ejemplo de expresiones logicas o booleanas
+                - 
+
+        */
+
+        /*
+            Operadores de comparación en JS
+
+            Operador        Descripción                                                         Ejemplo
+
+            ==              Igual a : true si los operandos son iguales no estricto             5 == 5      true
+                                                                                                5 == 4      false
+                                                                                                5 == '5'    true
+
+            !=              No igual a : true si los operandos no son iguales no estricto       5 != 5      false
+                                                                                                5 != 4      true
+                                                                                                5 != '4'    true
+
+            ===             Estricto igual a : true si los operandos son iguales                5 === 5     true           
+                                y del mismo tipo                                                5 === '5'   false
+
+            !==             Estricto no es igual a : true si los operandos son iguales          5 !== 5     false
+                                pero de diferente tipo o no son iguales en absoluto             5 !== '5'   true
+        
+            >               Mayor que : true si el operando izquierdo es mayor que el           5 > 4       true
+                                operando derecho
+
+            >=              Mayor o igual a : true si el operando izquierdo es mayor            5 >= 5      true
+                                o igual que el operando derecho
+
+            <               Menor que : true si el operando izquierdo es menor que el           4 < 5       true
+                                operando derecho
+
+            <=              Menor o igual a : true si el operando izquierdo es menor o          5 <= 5      true
+                                igual que el operando derecho
+
+            */                    
+
+            var a = 5, b = 2, c = 'hello';
+            // equal to operator ==
+            console.log(a == 5);     // true
+            console.log(b == '2');   // true
+            console.log(c == 'Hello');  // false
+
+
+            a = 3, b = 'hello';
+            // not equal operator !=
+            console.log(a != 2); // true
+            console.log(b != 'Hello'); // true
+
+
+            a = 2;
+            // strict equal operator ===
+            console.log(a === 2); // true
+            console.log(a === '2'); // false
+
+
+            a = 2, b = 'hello';
+            // strict not equal operator !==
+            console.log(a !== 2); // false
+            console.log(a !== '2'); // true
+            console.log(b !== 'Hello'); // true
+
+
+            a = 3;
+            // greater than operator  >
+            console.log(a > 2); // true
+
+
+            a = 3;
+            // greater than or equal operator >=
+            console.log(a >= 3); //true
+
+
+
+            /*
+            Tablas de verdad
+
+                X           Y               OR              AND
+                F           F               F               F
+                F           V               V               F
+                V           F               V               F
+                V           V               V               V
+
+            Operadores Logicos en JS   
+            
+            Operador        Descripción                                                         Ejemplo
+            &&              AND lógico : true si ambos operandos / valores booleanos            true && false       false
+                                    son verdaderos, de lo contrario se evalúa como false
+
+            ||              OR lógico : true si alguno de los operandos / valores booleanos      true || false       true
+                                    es true. evalúa falsesi ambos son false
+
+            !               NOT lógico : true si el operando es false y viceversa.              !true               false
+
+        */
+
+        a = true, b = false;
+        c = 4;
+
+        // logical AND &&
+        console.log(a && a); // true
+        console.log(a && b);  // false
+
+        console.log((c > 2) && (c < 2)); // false
+
+
+        a = true, b = false, c = 4;
+        // logical OR ||
+        console.log(a || b); // true
+        console.log(b || b); // false
+        console.log((c>2) || (c<2)); // true
+
+        a = true, b = false;
+        // logical NOT
+        console.log(!a);    // false
+        console.log(!b);    // true
+        console.log(!!a);   // true
+        console.log(!!!a);  // false
+        console.log(!!!!a); // true
+
+
+
+        /* -------------------------------------------------- */
+        /*          Estructura condicional IF ELSE            */
+        /* -------------------------------------------------- */
+        /*var respuesta = confirm('Desea Ingresar?')
+        alert('La respuesta es ' + respuesta)
+
+        if(respuesta) {
+            alert('Bienvenido!')
+        }
+        else {
+            alert('Lo esperamos la próxima vez')
+        }
+        alert('Fin del programa!') */
+
+        /* -------------------------------------------------- */
+        /*      Estructura condicional IF ELSE Anidada        */
+        /* -------------------------------------------------- */
+        /* var edad = prompt('Ingrese su edad')
+        if (edad >= 18) {
+            alert('Ud. es mayor de edad')
+
+            var respuesta = confirm('Desea ingresar?')
+            if (respuesta) {
+                alert('Bienvenido')
+
+                var nombre = prompt('Me dice su nombre?')
+                if (nombre == 'Juan') {
+                    alert('Hola Juancitooo!!')
+                }
+                else {
+                    if(nombre) {
+                        alert('Buenas noches ' + nombre)
+                        
+                        respuesta = confirm('Puedo ir al baño?')
+                        if(respuesta) {
+                            var clave = prompt('Ingrese la clave para acceder...')
+                            if(clave == 1234) {
+                                alert('Puede ingresar')
+                            }
+                            else {
+                                alert('Por favor, pida la clave en recepción')
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            alert('Ud. es menor de edad')
+        } */
+
+
+        /* ----------------------------------------------------------------- */
+        /*   Obtener el nombre del día de la semana con if - else if - else  */
+        /* ----------------------------------------------------------------- */
+        var fyh = new Date()
+        console.log(fyh)
+        
+        var numeroDia = fyh.getDay()    // 0: domingo .... 6: sábado
+
+        //numeroDia = 6 //para prueba de cambio de día ó error
+        console.log(numeroDia)
+
+        var nombreDia = ''
+        if(numeroDia == 0) nombreDia = 'domingo'
+        else if(numeroDia == 1) nombreDia = 'lunes'
+        else if(numeroDia == 2) nombreDia = 'martes'
+        else if(numeroDia == 3) nombreDia = 'miércoles'
+        else if(numeroDia == 4) nombreDia = 'jueves'
+        else if(numeroDia == 5) nombreDia = 'viernes'
+        else if(numeroDia == 6) nombreDia = 'sábado'
+        else nombreDia = 'DÍA DESCONOCIDO'
+
+        document.write('El número de día es ' + numeroDia + '<br>')
+        document.write('Hoy es <b>' + nombreDia + '</b> (con if-else if-else)<br> ')
+
+        /* ----------------------------------------------------------------- */
+        /*         Obtener el nombre del día de la semana con switch         */
+        /* ----------------------------------------------------------------- */
+        switch(numeroDia) {
+            //if(numeroDia === 0)
+            case 0:
+                nombreDia = 'domingo'
+                break
+            //else if(numeroDia === 1)
+            case 1:
+                nombreDia = 'lunes'
+                break
+            //else if(numeroDia === 2)
+            case 2:
+                nombreDia = 'martes'
+                break
+            //else if(numeroDia === 3)
+            case 3:
+                nombreDia = 'miércoles'
+                break
+            //else if(numeroDia === 4)
+            case 4:
+                nombreDia = 'jueves'
+                break
+            //else if(numeroDia === 5)
+            case 5:
+                nombreDia = 'viernes'
+                break
+            //else if(numeroDia === 6)
+            case 6:
+                nombreDia = 'sábado'
+                break
+            //else
+            default:
+                nombreDia = 'DÍA DESCONOCIDO'
+                //break
+        }
+
+        document.write('Hoy es <b>' + nombreDia + '</b> (con switch)<br> ')
+
+        /* ----------------------------------------------------------------- */
+        /*  Otro ejemplo de switch: decir si es día laboral ó fin de semana  */
+        /* ----------------------------------------------------------------- */
+        var tipoDia = ''
+        switch(numeroDia) {
+            //if(numeroDia === 0 || numeroDia === 6)
+            case 0:
+            case 6:
+                tipoDia = 'FIN DE SEMANA'
+                break
+            //else if(
+            //    numeroDia === 1 ||
+            //    numeroDia === 2 ||
+            //    numeroDia === 3 ||
+            //    numeroDia === 4 ||
+            //    numeroDia === 5
+            //)
+            // ó
+            //else if( numeroDia >== 1 && numeroDia <== 5)
+            case 1:                
+            case 2:                
+            case 3:                
+            case 4:                
+            case 5:
+                tipoDia = 'DÍA LABORAL'
+                break
+            //else
+            default:
+                tipoDia = 'DÍA DESCONOCIDO'
+        }
+
+        document.write('Hoy es dia tipo ' + tipoDia + '<br><br>')
+
+        /* --------------------------------------------------------------- */
+        /*                         OPERADOR TERNARIO                       */
+        /* --------------------------------------------------------------- */
+        //un ejemplo de operador ternario simple
+        /* var edad = prompt('Ingrese su edad')
+        alert(edad>=18? 'Soy mayor de edad' : 'Soy menor de edad') */
+
+        //ejemplo tipo día con if-elseif-else
+        if(numeroDia == 0 || numeroDia == 6) document.write('Hoy es fin de semana')
+        else if(numeroDia >= 1 && numeroDia <= 5) document.write('Hoy día laboral')
+        else document.write('Hoy es día desconocido')
+        document.write('<br>')
+
+        //un ejemplo de operador ternario anidado
+        document.write(
+            (numeroDia == 0 || numeroDia == 6)? 'Hoy es fin de semana' :
+            ( (numeroDia >= 1 && numeroDia <= 5)? 'Hoy día laboral' : 'Hoy es día desconocido' )
+        )
+java
+
+    </script>
+</body>
+</html>

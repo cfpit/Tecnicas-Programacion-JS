@@ -1,0 +1,88 @@
+.cuerpo{
+    background-color: bisque;
+}
+.formulario{
+    background-color: burlywood;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.cartel{
+    background-color: burlywood;
+    color: blue;
+    text-align: center;
+    padding: 10px;
+    border-radius: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-variant-caps: all-petite-caps;
+    opacity: 0.5;
+    transition: 3s;
+}
+/* bloque de comentarios */
+/* Eventos en css */
+.cartel:hover{
+    opacity: 1;
+    transition: 3s;
+    border-radius: 0px;
+    background-color: blue;
+    color: red;
+}
+.texto{
+    background-color: aquamarine;
+    color: blue;
+    border-style: none;
+    border-radius: 8px;
+    padding: 5px;
+}
+.texto:hover{
+    background-color: lightcyan;
+}
+.texto:focus{
+    background-color: lightgray;
+}
+.etiqueta{
+    color:blue;
+}
+.etiquetaMenor{
+    color: blue;
+    font-size: small;
+}
+
+input[type="checkbox"],  input[type="radio"]{
+    color: #27ed0d;
+    background-color: #27ed0d;
+    width: 18px;
+    height: 18px;
+    margin: 0.5em 0.5em 0 0;
+    border: 2px solid #27ed0d;
+    background: #70d60b;
+    border-radius: 100%;
+}
+
+.boton{
+    width: 200px;
+    margin: 5px;
+    padding: 5px;
+    border-style: none;
+    border-radius: 8px;
+    color: white;
+}
+.botonOK{
+    background-color: green;
+}
+.botonReset{
+    background-color: red;
+}
+.botonOK:hover{
+    background-color: lightgreen;
+    color: darkgreen;
+}
+.botonReset:hover{
+    background-color: lightcoral;
+    color: red;
+}
+

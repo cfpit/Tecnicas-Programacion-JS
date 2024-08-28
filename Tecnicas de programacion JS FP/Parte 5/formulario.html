@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="cuerpo">
+    <h1 class="cartel">Formulario de ingreso</h1>
+    <form class="formulario">
+        <table>
+            <tr>
+                <td><label class="etiqueta">Nombre: </label></td>
+                <td><input type="text" class="texto" style="width: 200px;" required minlength="3" maxlength="20"></td>
+            </tr>
+            <tr>
+                <td><label class="etiqueta">Apellido: </label> </td>
+                <td><input type="text" class="texto" style="width: 200px;" required minlength="3" maxlength="20"></td>
+            </tr>
+            <tr>
+                <td><label class="etiqueta">Estado Civil: </label></td>
+                <td>
+                    <select class="texto" style="width: 208px;">
+                        <option>Soltero</option>
+                        <option>Casado</option>
+                        <option>Viudo</option>
+                        <option>Divorciado</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="etiqueta">Genero: </label></td>
+                <td>
+                    <input type="radio" class="texto" name="genero" value="Femenino" checked><label class="etiquetaMenor">Femenino</label><br>
+                    <input type="radio" name="genero" value="Masculino"><label class="etiquetaMenor">Masculino</label><br>
+                    <input type="radio" name="genero" value="X"><label class="etiquetaMenor">X</label>
+                </td>
+            </tr>
+            <!-- date textarea -->
+            <tr>
+                <td><label class="etiqueta">Vehiculo: </label></td>
+                <td>
+                    <input type="checkbox" class="texto" name="bici" value="bici"><label class="etiquetaMenor">Bicicleta</label><br>
+                    <input type="checkbox" name="mono" value="mono"><label class="etiquetaMenor">Monopatin</label><br>
+                    <input type="checkbox" name="moto" value="moto"><label class="etiquetaMenor">Moto</label><br>
+                    <input type="checkbox" name="auto" value="auto"><label class="etiquetaMenor">Automobil</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="etiqueta">Altura: </label></td>
+                <td><input type="number" class="texto" style="width: 200px;" value="160" min="100" max="260"><label class="etiquetaMenor"> cms</label></td>
+            </tr>
+            <tr>
+                <td><label class="etiqueta">Peso: </label></td>
+                <td><input type="number" class="texto" style="width: 200px;" value="60" min="10" max="320" step="0.1"><label class="etiquetaMenor"> kgms</label></td>
+            </tr>
+            <tr>
+                <td><label class="etiqueta">Email: </label></td>
+                <td><input type="email" class="texto" style="width: 200px;" ></td>
+            </tr>
+            <tr>
+                <td><label class="etiqueta">Fecha de Nacimiento: </label></td>
+                <td><input type="date" class="texto" style="width: 203px;" ></td>
+            </tr>
+            <tr>
+                <td><label class="etiqueta">Comentarios: </label></td>
+                <td><textarea class="texto" cols="30" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <td><input class="boton botonOK" type="submit" value="Enviar"></td>
+                <td><input class="boton botonReset" type="reset" value="Limpiar"></td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+</html>

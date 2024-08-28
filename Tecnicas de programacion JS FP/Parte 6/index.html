@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 6</title>
+    <link href="css/lightbox.css" rel="stylesheet">
+</head>
+<body>
+    
+    <script>
+        /*
+            Parte 6 
+
+            - Qué es una librería?
+            - Cómo se implementa?
+            - Diferencia entre una librería y un framework?
+            - Cuáles son las librerías y frameworks más utilizadas en la actualidad?
+            - Ventajas y desventajas de cada una
+
+
+        */    
+    </script>
+
+    <div>Mi caja</div>
+    <button id="aparecer">Aparecer</button>
+    <button id="desaparecer">Desaparecer</button>
+    <button id="rojo">Rojo</button>
+    <button id="verde">Verde</button>
+    <button id="azul">Azul</button>
+
+    <!-- 
+        JQuery
+
+        descargar JQuery
+        https://jquery.com/ 
+
+        o descargamos el CDN  
+        https://code.jquery.com/
+    -->
+    
+    <!--
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous">
+    </script>
+    -->
+    
+    <script src="js/jquery-3.6.0.js"></script>
+
+    <script>
+		//uso de JQuery
+		//selectores de JQuery
+        $('#aparecer').click(aparecer)
+        $('#desaparecer').click(desaparecer)
+        $('#rojo').click(rojo)
+        $('#verde').click(verde)
+        $('#azul').click(azul)
+
+        function aparecer(){
+            $('div').show()
+        }
+
+        function desaparecer(){
+            $('div').hide()
+        }
+
+        function rojo(){
+            $('div').css('background', 'red');
+        }
+
+        function verde(){
+            $('div').css('background', 'green');
+        }
+
+        function azul(){
+            $('div').css('background', 'blue');
+        }
+
+    </script>
+    
+    <!-- Funciones y Eventos -->
+
+    <script>
+        function alertar(parametro){
+            alert('Hola como estas '+parametro)
+        }
+    </script>
+
+    <p onclick="alertar('Juana')">Haceme Click</p>
+    <p onclick="alertar('Mauro')">Haceme Click</p>
+
+    <!-- Funciones y val -->
+    <select>
+        <option value="1"> Uno </option>
+        <option value="2"> Dos </option>
+        <option value="3"> Tres </option>
+    </select>
+
+    <script>
+
+        $('select').change(mostrarValor)
+
+        function mostrarValor(){
+            var valor=$('select').val()
+            alert(valor)
+        }
+
+    </script>
+
+</body>
+</html>

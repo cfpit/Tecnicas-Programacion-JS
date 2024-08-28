@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 3 JS - Estructuras de repetición / Ciclos iterativos / Loops</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    
+    <script>
+
+        /*
+			Parte 3
+            En este módulo verás
+                - Arreglos (arrays) simples y complejos
+                - Métodos push, pop, splice
+                - Objetos, propiedades y métodos
+                - Introducción a bucles
+                - for, while, do while
+        */
+
+        /* ------------------------------------------------------------------ */
+        /*      Formas para incrementar (otras operaciones) una variable      */
+        /* ------------------------------------------------------------------ */
+        console.log('/* Forma normal */')
+        var n = 9
+        n = n + 1
+        /* Otras operaciones normales 
+        n = n - 1
+        n = n * 1
+        n = n / 1
+        n = n % 1
+        */
+        console.log(n)
+
+        /* ---------------------------------------------- */
+        console.log('/* Forma reducida */')
+        n = 9
+        n += 1
+        /* Otras operaciones reducidas 
+        n -= 1
+        n *= 1
+        n /= 1
+        n %= 1
+        */
+        console.log(n)
+
+        /* ---------------------------------------------- */
+        console.log('/* Forma post incremento */')
+        n = 9
+        
+        var postInc = n++
+        /* es igual a
+        var postInc = n
+        n = n + 1   -> post
+        */
+        console.log(postInc)
+        /* Otras operaciones post incremento 
+        n--
+        */
+        console.log(n)
+
+        /* ---------------------------------------------- */
+        console.log('/* Forma pre incremento */')
+        n = 9
+        
+        var preInc = ++n
+        /* es igual a
+        n = n + 1   -> pre
+        var preInc = n
+        */
+        console.log(preInc)
+        /* Otras operaciones pre incremento 
+        --n
+        */
+        console.log(n)
+
+        /* ------------------------------------------------------------------ */
+        /*                      Estructuras iterativas                        */
+        /* ------------------------------------------------------------------ */
+        /* -------------------------------------------------------------------------------- */
+        console.log('\n/* Representar los números consecutivos del 0 al 9 (con do while) */')
+
+        var numero = 0
+        do {
+            console.log(numero)
+            numero++
+        }
+        while(numero < 10)
+
+        /* -------------------------------------------------------------------------------- */
+        console.log('\n/* Representar los números consecutivos del 0 al 9 (con while) */')
+
+        numero = 0
+        while(numero < 10) {
+            console.log(numero)
+            numero++
+        }
+        
+        /* -------------------------------------------------------------------------------- */
+        console.log('\n/* Representar los números consecutivos del 0 al 9 (con for) */')
+        //    (1)        (2)(5)(8)      (4)(7)
+        for(numero = 0; numero < 10; numero++) {
+            console.log(numero) // (3)(6)
+        }
+        //(9)
+        
+        /* -------------------------------------------------------------------------------- */
+        console.log('\n/* Representar números consecutivos usando (break y continue) (con for) */')
+        for(numero = 0; numero < 10; numero++) {
+            if(numero == 2 || numero == 3) continue    //continue sólo sirve para ciclo for
+            if(numero == 6) break       //break sirve para ciclos for, while y do while
+            console.log(numero)
+        }
+
+        /* -------------------------------------------------------------------------------- */
+        console.log('\n/* Representar los números consecutivos del 9 al 0 (con for) */')
+
+        for(numero = 9; numero >= 0; numero--) {
+            console.log(numero)
+        }
+        
+
+        /* -------------------------------------------------------------------------------- */
+        console.log('\n/* Representar los números de 2 en 2 del 0 al 20 inclusive (con for) */')
+
+        for(numero = 0; numero <= 20; numero+=2) {
+            console.log(numero)
+        }
+        
+
+        /* -------------------------------------------------------------------------------- */
+        console.log('\n/* Ciclo for con múltiples tareas en los campos de: inicialización, test de condición y actualización de condición */')
+
+        for(var i=0,j=9; i<10 && j>=5; i++,j--) {
+            console.log('i:',i,'j:',j)
+        }
+        
+        /* -------------------------------------------------------------------------------- */
+        console.log('\n/* Ciclo for anidados */')
+
+        for(var i=10; i<15; i++) {
+            for(var j=20; j<25; j++) {
+                for(var k=0; k<2; k++) {
+                    console.log('i:',i,'j:',j,'k:',k)
+                }
+            }
+        }
+
+        /* -------------------------------------------------------------------------------- */
+        console.log('\n/* Representar los números pares entre el 10 al 20 inclusive (con for) */')
+
+        for(numero = 10; numero <= 20; numero++) {
+            if(numero % 2 == 0) console.log(numero)
+        }
+        
+
+        /* -------------------------------------------------------------------------------- */
+        console.log('\n/* Representar los números impares entre el 10 al 20 inclusive (con for) */')
+
+        for(numero = 10; numero <= 20; numero++) {
+            if(numero % 2 == 1) console.log(numero)
+        }
+        
+        /* -------------------------------------------------------------------------------- */
+        document.write('/* Clasificar los números de 10 al 40 en pares ó impares */<br>')
+        document.write('/* Además, indicar con un asterisco (*) los múltiplos de 3 */<br>')
+        document.write('/* También , indicar con un asterisco (#) los múltiplos de 5 */<br>')
+        document.write('/* Ej: formato : "15 IMPAR * #" - "14 PAR" - "24 PAR *" */<br><br> ')
+
+        for(var num=10; num<=40; num++) {
+            var resultado =
+                num + ' ' +
+                ((num%2 == 0)? 'PAR':'IMPAR') + ' ' + 
+                ((num%3 == 0)? '*':'') + ' ' +
+                ((num%5 == 0)? '#':'') + '<br>'
+
+            document.write(resultado)
+        }
+        
+        /* -------------------------------------------------------------------------------- */
+        console.log('\n/* Representar 10 números aleatorios entre el 1 al 20 inclusive (con for) */')
+
+        for(n = 0; n < 10; n++) {
+            //https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+            var aleatorio = Math.random()   // 0 ... 0.9999999999999.....
+            aleatorio *= 20                 // 0 ... 19.999999999999.....
+            aleatorio = parseInt(aleatorio) // 0 ... 19
+            /* aleatorio++                     // 1 ... 20
+            console.log(aleatorio) */            
+            console.log(++aleatorio)        // 1 ... 20
+        }
+
+
+        /* -------------------------------------------------------------------------------- */
+        console.log('\n/* Representar 10 números aleatorios entre el 1 al 20 inclusive (con while) */')
+        
+        n = 0
+        while(n < 10) {
+            //https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+            var aleatorio = Math.random()   // 0 ... 0.9999999999999.....
+            aleatorio *= 20                 // 0 ... 19.999999999999.....
+            aleatorio = parseInt(aleatorio) // 0 ... 19
+            /* aleatorio++                     // 1 ... 20
+            console.log(aleatorio) */            
+            console.log(++aleatorio)        // 1 ... 20
+            n++
+        }
+
+
+        /* -------------------------------------------------------------------------------- */
+        console.log('\n/* Calcular el promedio de las notas de alumnos (con do while) */')
+        do {
+            var sumaNotas = 0
+            var cantNotas = 0
+            var notas = ''
+            var nombre = prompt('Ingrese el nombre del alumno')
+
+            do {
+                var nota = prompt('Ingrese la nota del alumno ' + nombre + ', x para salir')
+                console.log(nota)
+                //if(nota != 'x') {
+                if(nota == 'x') break
+                
+                if(nota >= 0 && nota <= 10 && nota != '' && nota != null) {
+                    sumaNotas += parseFloat(nota)
+                    cantNotas++
+                    notas += (nota + ' ')
+                }
+                else {
+                    alert('Nota ' + nota + ' no válida, ingrese nuevamente')
+                }
+                //}
+            }
+            //while(nota != 'x')
+            while(true)
+
+            if(cantNotas) {
+                var promedio = sumaNotas / cantNotas
+                var mensaje = 
+                    '-----------------------------------------------<br>'+
+                    ' El promedio de notas es ' + promedio + '<br>' +
+                    ' La cantidad notas ingresadas es ' + cantNotas + '<br>' +
+                    ' Las notas ingresadas son: ' + notas + '<br>' +
+                    ' El alumno/a ' + nombre + ' ' + (promedio >= 4? 'APROBÓ':'NO APROBÓ') + '<br>' +
+                    '-----------------------------------------------<br>'
+                document.write(mensaje)
+            }
+            else {
+                alert('No hay notas ingresadas')
+            }
+        }
+        while(confirm('Desea calcular otro promedio?'))
+
+    </script>
+    <h1 id="titulo">Bienvenidos!</h1>
+    <p id="parrafo">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis perspiciatis iste consequatur repudiandae provident nisi voluptatum adipisci nostrum hic suscipit. Assumenda eligendi, voluptas accusantium aliquid perferendis rerum totam minus enim.
+    </p>
+    <span id="lista"></span>
+
+    <script>
+        /* ------------------------------------------------- */
+        /*                      TITULO                       */
+        /* ------------------------------------------------- */
+        var refTitulo = document.getElementById('titulo')
+        console.log(refTitulo)
+
+        console.log(refTitulo.innerText)
+        refTitulo.innerText = 'Lo cambié!'
+        console.log(refTitulo.innerText)
+
+        refTitulo.innerHTML = '<i>Lo cambié otra vez!</i>'
+
+        refTitulo.style.color = 'blue'
+
+
+        /* ------------------------------------------------- */
+        /*                      PARRAFO                      */
+        /* ------------------------------------------------- */
+        var refParrafo = document.getElementById('parrafo')
+        console.log(refParrafo)
+
+        refParrafo.style.color = 'magenta'
+        refParrafo.style.backgroundColor = '#000'
+        refParrafo.style.padding = '10px'
+        refParrafo.style.borderRadius = '10px'
+
+    </script>
+
+    <script src="js/main.js"></script>
+
+
+
+
+</body>
+</html>

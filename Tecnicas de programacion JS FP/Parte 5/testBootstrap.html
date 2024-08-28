@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testBootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- https://getbootstrap.com/ -->
+
+    <!-- contenedores -->
+    <!--
+    <div class="container-sm text-primary bg-secondary-subtle m-1 p-1 text-center">100% wide until small breakpoint</div>
+    <div class="container-md text-primary bg-secondary-subtle m-1 p-1 text-center">100% wide until medium breakpoint</div>
+    <div class="container-lg text-primary bg-secondary-subtle m-1 p-1 text-center">100% wide until large breakpoint</div>
+    <div class="container-xl text-primary bg-secondary-subtle m-1 p-1 text-center">100% wide until extra large breakpoint</div>
+    <div class="container-xxl text-primary bg-secondary-subtle m-1 p-1 text-center">100% wide until extra extra large breakpoint</div>
+    -->
+
+    <div class="container-md bg-secondary">
+        <h1 class="text-primary text-center bg-secondary-subtle m-1 p-2">Formulario de Ingreso</h1>
+
+        <form class="bg-light m-2 p-2">
+
+            <!-- Nombre -->
+            <div class="mb-3 row">
+                <label for="nombre" class="col-sm-3 col-form-label text-primary">Nombre</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control-plaintext text-primary bg-info-subtle p-2" id="nombre"
+                        minlength="3" maxlength="15" placeholder="Ingrese su nombre">
+                </div>
+            </div>
+
+            <!-- Apellido -->
+            <div class="mb-3 row">
+                <label for="apellido" class="col-sm-3 col-form-label text-primary">Apellido</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control-plaintext text-primary bg-info-subtle p-2" id="apellido"
+                        minlength="3" maxlength="15" placeholder="Ingrese su apellido">
+                </div>
+            </div>
+
+            <!-- Edad -->
+            <div class="mb-3 row">
+                <label for="edad" class="col-sm-3 col-form-label text-primary">Edad</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control-plaintext text-primary bg-info-subtle p-2" id="edad"
+                        value="18" min="18" max="120">
+                </div>
+            </div>
+
+            <!-- Altura -->
+            <div class="mb-3 row">
+                <label for="altura" class="col-sm-3 col-form-label text-primary">Altura</label>
+                <div class="col-sm-6">
+                    <input type="range" class="form-range" value="150" min="0" max="300" id="altura"
+                        onchange="cambiarAltura()">
+                </div>
+                <label id="alturaValor" class="col-sm-3 col-form-label text-primary text-center">150</label>
+                <script>
+                    function cambiarAltura() {
+                        valor = document.getElementById("altura").value
+                        document.getElementById("alturaValor").innerText = valor
+                    }
+                </script>
+            </div>
+
+            <!-- Estado Civil -->
+            <div class="mb-3 row">
+                <label for="estadoCivil" class="col-sm-3 col-form-label text-primary">Estado Civil</label>
+                <div class="col-sm-9">
+                    <select class="form-select text-primary bg-info-subtle p-2" aria-label="Default select example"
+                        id="estadoCivil">
+                        <option selected>Soltero</option>
+                        <option>Casado</option>
+                        <option>Viudo</option>
+                        <option>Divorciado</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Genero -->
+            <div class="mb-3 row">
+                <label for="genero" class="col-sm-3 col-form-label text-primary">Genero</label>
+                <div class="col-sm-9">
+                    <input class="form-check-input bg-primary-subtle" type="radio" name="genero" id="femenino" checked>
+                    <label class="form-check-label text-primary me-3" for="femenino">Femenino</label>
+                    <input class="form-check-input bg-primary-subtle" type="radio" name="genero" id="masculino">
+                    <label class="form-check-label text-primary me-3" for="masculino">Masculino</label>
+                    <input class="form-check-input bg-primary-subtle" type="radio" name="genero" id="x">
+                    <label class="form-check-label text-primary me-3" for="x">X</label>
+                </div>
+            </div>
+
+            <!-- Vehiculo -->
+            <div class="mb-3 row">
+                <label for="vehiculo" class="col-sm-3 col-form-label text-primary">Vehículo</label>
+                <div class="col-sm-9">
+                    <input class="form-check-input bg-primary-subtle" type="checkbox" name="bici" id="bici">
+                    <label class="form-check-label text-primary me-3" for="bici">Bici</label>
+                    <input class="form-check-input bg-primary-subtle" type="checkbox" name="mono" id="mono">
+                    <label class="form-check-label text-primary me-3" for="mono">Monopatín</label>
+                    <input class="form-check-input bg-primary-subtle" type="checkbox" name="moto" id="moto">
+                    <label class="form-check-label text-primary me-3" for="moto">Moto</label>
+                    <input class="form-check-input bg-primary-subtle" type="checkbox" name="auto" id="auto">
+                    <label class="form-check-label text-primary me-3" for="auto">Auto</label>
+                </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="mb-3 row m-2 p-2">
+                <button type="reset" class="btn btn-danger col-sm-5 m-2 p-2">Limpiar</button>
+                <button type="submit" class="btn btn-success col-sm-5 m-2 p-2">Enviar</button>
+            </div>
+        </form>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

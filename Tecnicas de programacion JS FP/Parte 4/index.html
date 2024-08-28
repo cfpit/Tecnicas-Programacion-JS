@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 4</title>
+</head>
+<body>
+    <script>
+        /*
+            Parte 4.
+                - Introducción a funciones
+                - Beneficio de la modularización en nuestro proyecto
+                - Para que sirven, sintaxis
+                - Funciones paramétricas
+                - Funciones complejas
+        */
+
+        //variable del tipo array
+        console.log('/* --------------------------------- */')
+        console.log('/*               ARRAY               */')
+        console.log('/* --------------------------------- */')
+
+        var miArrayNumerico = [1,2,4,6,9,33,55,4,99] //array numérico homogéneo
+        console.log(miArrayNumerico)
+
+        console.log('La cantidad de elementos del array es ' + miArrayNumerico.length)
+
+        console.log('El primer elemento es ' + miArrayNumerico[0])
+        console.log('El tercer elemento es ' + miArrayNumerico[2])
+
+        var indiceAlUltimo = miArrayNumerico.length - 1
+        console.log('El último elemento es ' + miArrayNumerico[indiceAlUltimo])
+
+        miArrayNumerico[miArrayNumerico.length - 2] = 777
+        console.log(miArrayNumerico)
+
+        /* --------------------------------------------------------- */
+        var diasSemana = ['domingo','lunes','martes','miercoles','jueves','viernes','sábado'] //array de string homogéneo
+        
+        //https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getDay
+        var numDia = new Date().getDay() // 0: domingo .... 6: sábado
+
+        console.log(diasSemana, numDia)
+        console.log('Hoy es ' + diasSemana[numDia])
+
+        /* --------------------------------------------------------- */
+        var nombre = 3
+        var apellido = 0
+        var DNI = 2
+        var curso = 1
+        var arrayPersona = ['Perez', true, 24567876, 'Juan' ] //array heterogeneo
+        console.log(arrayPersona)
+
+        console.log(
+            'La persona se llama ' + arrayPersona[nombre] + ' ' + arrayPersona[apellido] + ', su DNI es ' + 
+            arrayPersona[DNI] + '. EL curso de ingreso ' + (arrayPersona[curso]?'':'NO ') +  'lo ha realizado.'
+        )
+
+        //variable del tipo object
+        console.log('/* --------------------------------- */')
+        console.log('/*             OBJETOS               */')
+        console.log('/* --------------------------------- */')
+
+        var objetoPersona = { apellido: 'Perez', curso: true, DNI: 24567876, nombre: 'Juan' } //array heterogeneo
+        console.log(objetoPersona)
+
+        //acceso a los valores del objeto por notación corchete
+        console.log(
+            'La persona se llama ' + objetoPersona['nombre'] + ' ' + objetoPersona['apellido'] + ', su DNI es ' + 
+            objetoPersona['DNI'] + '. EL curso de ingreso ' + (objetoPersona['curso']?'':'NO ') +  'lo ha realizado.'
+        )
+
+        //acceso a los valores del objeto por notación punto
+        console.log(
+            'La persona se llama ' + objetoPersona.nombre + ' ' + objetoPersona.apellido + ', su DNI es ' + 
+            objetoPersona.DNI + '. EL curso de ingreso ' + (objetoPersona.curso?'':'NO ') +  'lo ha realizado.'
+        )
+
+        console.log('/* --------------------------------- */')
+        console.log('/*         ARRAY DE OBJETOS          */')
+        console.log('/* --------------------------------- */')
+
+        var alumnos = [
+            { nombre: 'Juan', apellido: 'Gomez', edad : 23, curso: true, foto: '' },
+            { nombre: 'Ana', apellido: 'Mei', edad : 22, curso: false, foto: '' },
+            { nombre: 'María', apellido: 'Picos', edad : 24, curso: false, foto: '' },
+            { nombre: 'José', apellido: 'Gonzalez', edad : 26, curso: true, foto: '' }
+        ]
+        console.log(alumnos)
+
+        /* -------------------------------------------------------------- */
+        console.log('/* Recorrido del array con ciclo for */')
+        for(var indice=0; indice < alumnos.length; indice++) {
+            //acceso con sintaxis punto
+            console.log(
+                'El alumno se llama ' + alumnos[indice].nombre + ' ' + alumnos[indice].apellido + ', su edad es ' + 
+                alumnos[indice].edad + '. El curso de ingreso ' + (alumnos[indice].curso?'':'NO ') +  'lo ha realizado.'
+            )            
+            //acceso con sintaxis corchete
+            console.log(
+                'El alumno se llama ' + alumnos[indice]['nombre'] + ' ' + alumnos[indice]['apellido'] + ', su edad es ' + 
+                alumnos[indice]['edad'] + '. El curso de ingreso ' + (alumnos[indice]['curso']?'':'NO ') +  'lo ha realizado.'
+            )
+            console.log('\n')            
+        }
+
+        
+        console.log('\n/* --------------------------------------------------- */')
+        console.log(  '/* Función que recibe parámetros y no devuelve valores */')
+        console.log(  '/* --------------------------------------------------- */')
+        function mostrarValores(array) {
+            console.log(array)
+            for(var i=0; i<array.length; i++) {
+                console.log('El elemento de índice ' + i + ' contiene este valor:', array[i])
+            }
+        }        
+
+        var array1 = [23,55,77,3,7,9,36]
+        mostrarValores(array1)
+
+        var array2 = [true,'Hola',[2,3,4],{x:1},34]
+        mostrarValores(array2)
+
+        /* ------------------------------------------------------------------------- */
+        console.log('\n/* --------------------------------------------------- */')
+        console.log(  '/*  Función que recibe parámetros y devuelve un valor  */')
+        console.log(  '/* --------------------------------------------------- */')
+
+        function sumar(a,b) {
+            return a + b
+        }
+
+        var num = 7
+        var resultado = sumar(5,num)
+        console.log('El resultado de la suma es ' + resultado)
+
+        
+        /* ------------------------------------------------------------------------- */
+        console.log('\n/* ------------------------------------------------------- */')
+        console.log(  '/*   Función que no recibe parámetros y no devuelve valor  */')
+        console.log(  '/* ------------------------------------------------------- */')
+
+        function saludar() {
+            console.log('Hola')
+        }
+
+        saludar()
+        saludar()
+        saludar()
+
+
+        /* ------------------------------------------------------------------------- */
+        console.log('\n/* ------------------------------------------------------- */')
+        console.log(  '/*   Función que no recibe parámetros y devuelve un valor  */')
+        console.log(  '/* ------------------------------------------------------- */')
+
+        function obtenerUnNumeroAleatorio1al10() {
+            var random = Math.random()  // 0 ... 0.99999999999.....
+            random *= 10                // 0 ... 9.99999999999.....
+            //random = parseInt(random)   // 0 ... 9
+            random = Math.floor(random)   // 0 ... 9
+            random++                    // 1 ... 10                
+           
+            return random
+        }
+
+        for(var i=0; i<10; i++) {
+            var numeroRandom = obtenerUnNumeroAleatorio1al10()
+            console.log(numeroRandom)
+        }
+
+    </script>
+
+        <!-- ------------------------------------------------------------ -->
+    <!--                      Evento de input                         -->
+    <!-- ------------------------------------------------------------ -->
+    
+    <!-- MO HACER!!!!! O Hacer a lo ultimo de todo -->
+    
+    <input type="text"> <span></span>
+    <hr>
+    <script>
+        var input = document.querySelector('input')
+        input.oninput = espejar
+
+        function espejar() {
+            var texto = input.value
+            console.log(texto)
+
+            var span = document.querySelectorAll('span')[0]
+            // ------------  String methods -------------
+            //https://www.w3schools.com/js/js_string_methods.asp
+            //https://www.w3schools.com/jsref/jsref_obj_string.asp
+            var array = texto.split('')
+            console.log(array)
+            // ------------  Array methods -------------
+            //https://www.w3schools.com/js/js_array_methods.asp
+            //https://www.w3schools.com/jsref/jsref_obj_array.asp
+            array.reverse()
+            console.log(array)
+
+            var textoInvertido = array.join('')
+            span.innerText = textoInvertido
+        }
+
+    </script>
+
+    <!-- ------------------------------------------------------------ -->
+    <!--                      Evento de mouse                         -->
+    <!-- ------------------------------------------------------------ -->
+    <p id="texto">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium sequi cupiditate rem dolorum odio asperiores possimus nostrum, quas debitis. Eligendi officia blanditiis eveniet, consequuntur mollitia repellat amet nostrum voluptates tenetur?
+    </p>
+    <hr>
+    <script>
+        var parrafo = document.querySelector('#texto')
+
+        parrafo.onmouseover = mouseOver
+        function mouseOver() {
+            console.log('El mouse está por encima del elemento')
+            parrafo.style.backgroundColor = 'black'
+            parrafo.style.color = 'white'
+        }
+
+        parrafo.onmouseleave = mouseLeave
+        function mouseLeave() {
+            console.log('El mouse está fuera del elemento')
+            parrafo.style.backgroundColor = ''
+            parrafo.style.color = ''
+        }
+
+    </script>
+
+    <!-- ------------------------------------------------------------ -->
+    <!--                      Evento de click!                        -->
+    <!-- ------------------------------------------------------------ -->
+    <!-- <button onclick="alert('Botón apretado')">Apretar!</button> -->
+    <button onclick="console.log('Botón apretado')">Apretar!</button>
+    <br><br>
+
+    <button onclick="decrementar()">Decrementar</button>
+    <button onclick="incrementar()">Incrementar</button>
+    <button onclick="reset()">Reset</button>
+    <span></span>
+
+    <script>
+        var contador = 0
+
+        function representarContador(valor) {
+            var span = document.querySelectorAll('span')[1]
+            span.innerText = valor
+        }
+        representarContador(contador)
+
+        function decrementar() {
+            contador--
+            console.log(contador)
+            representarContador(contador)
+        }
+
+        function incrementar() {
+            contador++
+            console.log(contador)
+            representarContador(contador)
+        }
+
+        function reset() {
+            contador = 0
+            console.log(contador)
+            representarContador(contador)
+        }
+    </script>
+    
+</body>
+</html>
